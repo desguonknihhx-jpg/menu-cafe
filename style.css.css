@@ -1,0 +1,245 @@
+:root {
+    --bg-color: #0c040e;
+    --cream-color: #F5F5DC;
+    --glass-bg: rgba(255, 255, 255, 0.04);
+}
+
+body {
+    background: var(--bg-color);
+    background-image: radial-gradient(circle at top, #1e0927 0%, #0c040e 100%);
+    color: var(--cream-color);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding-bottom: 50px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 70px;
+}
+.brand-logo {
+    height: 70px;    /* ئەڤە قەبارێ لۆگۆی بچووک دکەت، دشێی کێمتر ژی بکەی وەک 50px */
+    width: auto;     /* دا وێنە نەقوپیت و شێوازێ وی تێک نەچیت */
+    object-fit: contain;
+}
+
+#brand-name {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--cream-color);
+    text-shadow: 0 0 10px rgba(245, 245, 220, 0.4);
+}
+
+.lang-btn {
+    background: var(--cream-color);
+    color: #1a0822;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    
+    /* ئەڤە چارەسەریا سەرەکییە */
+    display: inline-flex;     /* دا نڤێسین و ئایکۆن ببنە ئێک ڕێز */
+    align-items: center;      /* هەمیا دکەتە ناوەڕاستا ستوونی (Vertical Center) */
+    justify-content: center;  /* هەمیا دکەتە ناوەڕاستا ئاسۆیی */
+    gap: 8px;                 /* بۆشاییەکا ڕێک د ناڤبەرا ئایکۆن و نڤێسینێ دا */
+    line-height: 1;           /* دا نڤێسین نەچیتە سەر یان خوار */
+}
+
+/* بۆ هندێ ئایکۆن ژی ب تمامى ڕێک بوەستیت */
+.lang-btn i {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.lang-container {
+    position: absolute; /* ئەڤە گرنگترینە دا دوکمە سەربەخۆ بیت */
+    left: 15px;         /* دکەتە لایێ چەپێ */
+    top: 50%;           /* دکەتە نیڤەکا بەرزییێ */
+    transform: translateY(-50%); /* دا ڕێک ل ناوەڕاستا ستوونی بیت */
+    z-index: 1100;      /* دا بکەڤیتە سەر هەمی تشتان */
+}
+
+/* ١. بچووککرن و ڕێکخستنا لۆگۆی */
+.brand-logo {
+    height: 50px;             /* قەبارەکێ بچووک و جوان */
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ٣. چارەسەریا دوکما زمانان - دێ ل لایێ چەپێ بیت بێی تێکچوون */
+.lang-container {
+    position: center;       /* ئەڤە وێ ژ سیستەمێ لۆگۆی جودا دکەت */
+    left: 15px;               /* دکەتە لایێ چەپێ */
+    top: 50%;                 /* دکەتە ناوەڕاستا ستوونی */
+    transform: translateY(-50%);
+    z-index: 1100;
+}
+
+.lang-btn {
+    background: #fcfcfc;
+    color: #aa4bc1;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    
+    /* ئه‌ڤ پشكه‌ ئایكۆن و نڤێسینێ ڕێك دكه‌ت */
+    display: flex;            /* دكه‌ته‌ سیسته‌مێ فڵێكس */
+    flex-direction:row;      /* ئایكۆن و نڤێسین د ئێك ڕێز دا بن */
+    align-items: center;      /* هه‌ردووكان د ئێك ئاست دا ڕێك دكه‌ت (Center) */
+    justify-content: center;  /* دكه‌ته‌ ناوەڕاستا دوكمێ */
+    gap: 8px;                 /* بۆشاییه‌كا جوان دكه‌ته‌ ناڤبه‌را ئایكۆن و نڤێسینێ */
+    
+    line-height: 1;           /* دا نڤێسین نه‌چیته‌ سه‌رێ یان خوارێ */
+}
+
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background: var(--cream-color);
+    color: #222;
+    padding: 10px;
+    border-radius: 12px;
+    width: 200px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+.lang-option {
+    padding: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    cursor: pointer;
+    font-weight: 700;
+    text-align: right;
+}
+
+.user-info {
+    padding: 10px;
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Category Scroll */
+.category-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 15px;
+    gap: 15px;
+    scrollbar-width: none;
+    background: rgba(0,0,0,0.2);
+}
+.category-scroll::-webkit-scrollbar { display: none; }
+
+.cat-item {
+    flex: 0 0 auto;
+    background: var(--glass-bg);
+    border: 1px solid rgba(245, 245, 220, 0.1);
+    padding: 12px;
+    border-radius: 15px;
+    text-align: center;
+    width: 80px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cat-item i { font-size: 22px; margin-bottom: 6px; color: var(--cream-color); opacity: 0.7; }
+.cat-item p { font-size: 10px; margin: 0; font-weight: bold; }
+
+/* Active Category Style */
+.cat-item.active {
+    background: var(--cream-color);
+    box-shadow: 0 0 15px var(--cream-color);
+}
+.cat-item.active i, .cat-item.active p { color: #1a0822; opacity: 1; }
+
+/* Items Square Grid */
+.items-grid {
+    display: grid;
+    /* ئەڤ دێڕە دێ ئایتمان کەتە ٣ یان ٤ دانە ل ڕەخ ئێک ب شێوەیەکێ ئۆتۆماتیکی */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+    gap: 10px; /* بۆشایی د ناڤبەرا ئایتمان دا */
+    padding: 15px;
+}
+.item-card {
+    background: #1a1a1a;
+    border-radius: 15px; /* کێمەکێ بازنەیی بکە */
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid #333; /* چارچۆڤەیەکێ سادە */
+}
+
+.item-img {
+    width: 100%;
+    height: 130px; /* بەرزییا وێنەی بچووک بکە */
+    overflow: hidden;
+}
+
+.item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* وێنە تێک ناچیت */
+}
+
+.item-img {
+    width: 100%;
+    height: 60%;
+    background: #151515;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.item-img-container {
+    width: 100%;
+    height: 160px;       /* بەرزییەکا جێگیر بۆ هەمی وێنەیان */
+    overflow: hidden;
+    border-radius: 18px 18px 0 0;
+}
+
+.menu-item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* دا وێنە نەقوپیت و هەمی جهی بگریت */
+    display: block;
+}
+.item-img i { font-size: 30px; color: #222; }
+
+.item-info {
+    background: #222;       /* ڕەنگێ پاشبنەمایێ کێمەکێ گەشتر ژ ڕەنگێ کارتێ */
+    padding: 10px 5px;      /* بۆشایی د ناڤبەرا نڤێسین و چارچۆڤەی دا */
+    border-top: 1px solid #000000; /* هێڵەکا باریک د ناڤبەرا وێنەی و نڤێسینێ دا */
+    text-align: center;
+}
+
+.item-name {
+    font-size: 14px; /* قەبارێ نڤێسینا ناڤی بچووک بکە */
+    margin-bottom: 4px;
+    color: var(--cream-color);
+}
+
+.item-price {
+    font-size: 13px; /* قەبارێ سعری بچووک بکە */
+    color: #ffd700; /* ڕەنگەکێ زێڕی بۆ سعری */
+    font-weight: bold;
+}
+
+.ltr { direction: ltr; }
+.ltr .lang-dropdown { left: auto; right: 20px; }
+.ltr .lang-option { text-align: left; }
